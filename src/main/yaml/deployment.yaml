@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: quarkus
+  name: quarkus
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: quarkus
+  template:
+    metadata:
+      labels:
+        app: quarkus
+    spec:
+      containers:
+        - image: image-registry.openshift-image-registry.svc:5000/senasica/quarkus
+          imagePullPolicy: Always
+          name: quarkus
+          ports:
+            - containerPort: 8080
+              protocol: TCP
