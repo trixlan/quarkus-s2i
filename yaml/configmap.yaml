@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mariadb
+  namespace: senasica
+data:
+  DB_URL: jdbc:mariadb://mariadb:3306/quarkus
