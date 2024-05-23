@@ -6,15 +6,20 @@
 - Poder crear PVC dentro de OpenShift
 - Tener una cuenta de registry.redhat.com
 [URL Registry Token](https://access.redhat.com/terms-based-registry/accounts)
+- Desplegar una base de datos MariaDB
+    - database-name - quarkus
+    - database-password: mariadb
+    - database-root-password: mariadb
+    - database-user: mariadb
 
 ## Despliegue
 ```console
 Creamos un proyecto
 $ oc new-project senasica
 Creamos la tarea en el proyecto
-$ oc apply -f pipeline/apply_manifest_task.yaml
+$ oc apply -f src/main/tkn/apply_manifest_task.yaml
 Creamos el pipeline en el proyecto
-$ oc apply -f pipeline/pipeline.yaml
+$ oc apply -f src/main/tkn/pipeline-s2i.yaml
 ```
 
 Una vez que ya tenemos el pipeline creado lo podemos desplegar
